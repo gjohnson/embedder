@@ -6,13 +6,13 @@ var defs = {},
     modules = {};
 
 // When the user defines a module's setup function, store it here.
-define = function define(name, fn) {
+define = function (name, fn) {
   defs[name] = fn;
 }
 
 var realRequire = typeof require !== "undefined" && require;
 // The first time a module is used, it's description is executed and cached.
-require = function require(name) {
+require = function (name) {
   if (modules.hasOwnProperty(name)) return modules[name];
   if (defs.hasOwnProperty(name)) {
     var exports = modules[name] = {};
